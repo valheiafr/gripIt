@@ -9,6 +9,7 @@ Package non présent sur un canal de distribution
 
     cd "path to folder with setup.py"
 
+
     pip install .
 
 
