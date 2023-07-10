@@ -86,9 +86,9 @@ def tableToPostgreSQL (data, table, network_numer, conn, if_exists='fail') :
     """
     Importe les stations crée par la fonction createSationsTable du module "newNetwork".
     ou
-    Importe les stations crée par la fonction createSationsTable du module "newNetwork".
+    Importe les liaisons crée par la fonction createLinksTable du module "newNetwork".
     ou
-    Importe le réseau crée par la fonction "creatNetworkTable" du module "newNetwork".
+    Importe le réseau crée par la fonction "createNetworkTable" du module "newNetwork".
 
 
     Parameters
