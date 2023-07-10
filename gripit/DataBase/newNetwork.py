@@ -5,7 +5,7 @@ Created on Wed May 31 14:57:55 2023
 @author: valentin.pasche1
 """
 
-def creatNetworkTable (network_numer, conn) :
+def createNetworkTable (network_numer, conn) :
     
     from gripit.DataBase import conStrPostgreSQL
     from sqlalchemy import create_engine
@@ -110,7 +110,7 @@ def creatNetworkTable (network_numer, conn) :
 
 
 
-def creatStationsTable (file_path) :
+def createStationsTable (file_path) :
     
     import pandas as pd
     import geopandas as gpd
@@ -161,7 +161,7 @@ def creatStationsTable (file_path) :
 
 
 
-def creatLinksTable (file_path) :
+def createLinksTable (file_path) :
     
     import pandas as pd
     

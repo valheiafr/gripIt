@@ -1,9 +1,6 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Jun  5 14:54:12 2023
+from .edit import *
+from .newNetwork import *
 
-@author: valentin.pasche1
-"""
 
 def conStrPostgreSQL (dict_conn):
     """
