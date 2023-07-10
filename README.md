@@ -6,8 +6,11 @@ Documentation is not available at the moment
 
 # Instalation en local via dossier
 Package non présent sur un canal de distribution
+
     cd "path to folder with setup.py"
+
     pip install .
+
 
 # Instalation en local via ZIP (à contrôler)
 Package non présent sur un canal de distribution
