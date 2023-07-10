@@ -8,10 +8,7 @@ Documentation is not available at the moment
 Package non présent sur un canal de distribution
 
     cd "path to folder with setup.py"
-
-
     pip install .
-
 
 # Instalation en local via ZIP (à contrôler)
 Package non présent sur un canal de distribution
