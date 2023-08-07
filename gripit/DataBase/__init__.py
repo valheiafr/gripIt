@@ -1,5 +1,6 @@
 from .edit import *
 from .newNetwork import *
+from .fluxCH import *
 
 
 def conStrPostgreSQL (dict_conn):
