@@ -1,10 +1,15 @@
 # gripit
 Projet Ra&D HES-SO
 
-# Instalation en local via ZIP
+# Documentation complète
+Documentation is not available at the moment
+
+# Instalation en local via dossier
 Package non présent sur un canal de distribution
 
-    pip install .../gripit/dist/gripit-0.0.1.tar.gz
+cd "path to folder with setup.py"
+    
+    pip install .
 
 # Gestion des version avec GIT
 Tuto git - Vidéo de base
