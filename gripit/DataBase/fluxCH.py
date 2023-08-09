@@ -75,11 +75,8 @@ def chargeTJM_onePoint (coordinates: tuple, ri: int, re: int, conn: dict, trafic
         import warnings
         warnings.filterwarnings("ignore")
         
-<<<<<<< HEAD
-=======
         from gripit.DataBase import conStrPostgreSQL
         
->>>>>>> dev/impacts
         small = ri # rayon en km
         big = re # rayon en km
     
@@ -90,21 +87,7 @@ def chargeTJM_onePoint (coordinates: tuple, ri: int, re: int, conn: dict, trafic
         
         taux = tim_taux # taux de remplissage, par défaut = 1.6
          
-        # Fonctions internes
-<<<<<<< HEAD
-        
-        def conStrSQLalchemy (dict_connection):
-            host = f'''{dict_connection["hostname"]}:{dict_connection["port_id"]}'''
-            database = dict_connection["database"]
-            user = dict_connection["username"]
-            password = dict_connection["pwd"]
-    
-            connection_string = f"postgresql://{user}:{password}@{host}/{database}"
-            return connection_string
-        
-=======
->>>>>>> dev/impacts
-    
+        # Fonctions internes    
         def getAttributs (sql, lst, dict_connection):
             conn = psycopg2.connect(
                 host=dict_connection['hostname'],
@@ -132,11 +115,7 @@ def chargeTJM_onePoint (coordinates: tuple, ri: int, re: int, conn: dict, trafic
         SELECT id, geom FROM "MNTP"."zones"
         '''
         
-<<<<<<< HEAD
-        engine = create_engine(conStrSQLalchemy(dict_connection))
-=======
         engine = create_engine(conStrPostgreSQL(dict_connection))
->>>>>>> dev/impacts
         zones = gpd.read_postgis(SQLquery_sjoin, engine).to_crs('EPSG:2056')
         engine.dispose()
         
