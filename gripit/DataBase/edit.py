@@ -162,7 +162,6 @@ def tableToPostgreSQL (data, table, network_numer, conn, if_exists='fail') :
     
     else : None
 
-
 ##### ##### #####
 
 def scriptSQL (dict_conn, script):
@@ -207,4 +206,3 @@ def scriptSQL (dict_conn, script):
     finally:
         if conn is not None:
             conn.close()
-
