@@ -62,7 +62,15 @@ v = gp.Physics.timePath.tGripit(100, 10)
 from gripit.Physics import tGripit
 v = tGripit(100, 10)
 
+## Test 9 - OK
+from gripit.DataBase import fluxCH as fx
 
+gare_o = (2537878, 1152013) # Gare Lausanne
+gare_d = (2499968, 1118531) # Gare Genève
+
+x = fx.chargeTJM_onePoint(gare_o,20,20,dict_connection, trafic='separate')
+y = fx.chargeTJM_betweenTwoPoint(gare_d,gare_o,10,10,dict_connection, trafic='separate')
+z = fx.chargeTJM_betweenTwoPoint(gare_d,gare_o,10,10,dict_connection, trafic='separate', tim_taux=1)
 
 
 

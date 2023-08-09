@@ -161,3 +161,48 @@ def tableToPostgreSQL (data, table, network_numer, conn, if_exists='fail') :
         setTable_notNULL_PK(tableName, connection, ['a','b']) # Définit les clés primaires de la table (connexion via psycopg2, "engine" non nécessaire)
     
     else : None
+
+##### ##### #####
+
+def scriptSQL (dict_conn, script):
+    import psycopg2
+
+    """
+    Fonction qui execute un script SQL directement dans la base de données.
+
+    Parameters
+    ----------
+    dict_conn : dict
+        Dictionnaire de connexion
+        !! Avec schéma !!.
+    script : srcipt SQL à executer
+
+    Returns
+    -------
+    None.
+
+    """
+
+    hostname = dict_conn["hostname"]
+    database = dict_conn["database"]
+    username = dict_conn["username"]
+    pwd = dict_conn["pwd"]
+    port_id = dict_conn["port_id"]
+    conn = dict_conn["conn"]
+    
+    try:
+        with psycopg2.connect(
+                                host = hostname,
+                                dbname = database,
+                                user = username,
+                                password = pwd,
+                                port = port_id) as conn:
+            with conn.cursor() as cur:
+                cur.execute(script)
+               
+    except Exception as error:
+        print(error)
+        
+    finally:
+        if conn is not None:
+            conn.close()

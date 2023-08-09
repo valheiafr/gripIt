@@ -17,7 +17,7 @@ with open('README.md', encoding="utf-8") as f:
 
 def setup_package():
     setup(name='gripit',
-          version='0.0.1',
+          version='0.0.2',
           description='Projet de recherche Ra&D HES-SO, distibution du code',
           long_description=long_description,
           long_description_content_type="text/markdown",

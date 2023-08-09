@@ -75,6 +75,11 @@ def chargeTJM_onePoint (coordinates: tuple, ri: int, re: int, conn: dict, trafic
         import warnings
         warnings.filterwarnings("ignore")
         
+<<<<<<< HEAD
+=======
+        from gripit.DataBase import conStrPostgreSQL
+        
+>>>>>>> dev/impacts
         small = ri # rayon en km
         big = re # rayon en km
     
@@ -86,6 +91,7 @@ def chargeTJM_onePoint (coordinates: tuple, ri: int, re: int, conn: dict, trafic
         taux = tim_taux # taux de remplissage, par défaut = 1.6
          
         # Fonctions internes
+<<<<<<< HEAD
         
         def conStrSQLalchemy (dict_connection):
             host = f'''{dict_connection["hostname"]}:{dict_connection["port_id"]}'''
@@ -96,6 +102,8 @@ def chargeTJM_onePoint (coordinates: tuple, ri: int, re: int, conn: dict, trafic
             connection_string = f"postgresql://{user}:{password}@{host}/{database}"
             return connection_string
         
+=======
+>>>>>>> dev/impacts
     
         def getAttributs (sql, lst, dict_connection):
             conn = psycopg2.connect(
@@ -124,7 +132,11 @@ def chargeTJM_onePoint (coordinates: tuple, ri: int, re: int, conn: dict, trafic
         SELECT id, geom FROM "MNTP"."zones"
         '''
         
+<<<<<<< HEAD
         engine = create_engine(conStrSQLalchemy(dict_connection))
+=======
+        engine = create_engine(conStrPostgreSQL(dict_connection))
+>>>>>>> dev/impacts
         zones = gpd.read_postgis(SQLquery_sjoin, engine).to_crs('EPSG:2056')
         engine.dispose()
         
@@ -162,7 +174,7 @@ def chargeTJM_onePoint (coordinates: tuple, ri: int, re: int, conn: dict, trafic
         
 
 
-def chargeTJM_twoPoint (origin: tuple, destination: tuple, r_Origin: int, r_Destination: int, conn: dict, trafic:str='all', tim_taux:float=1.6):    
+def chargeTJM_betweenTwoPoint (origin: tuple, destination: tuple, r_Origin: int, r_Destination: int, conn: dict, trafic:str='all', tim_taux:float=1.6):    
     """
     Calcule la charge de trafic TJM entrent dans une zone circulaire de rayon défini, en nombre de voyageurs,
         depuis une autre zone circulaire d'origine. Exemple: agglomération Lausanne vers agglomération Genève.
@@ -235,7 +247,10 @@ def chargeTJM_twoPoint (origin: tuple, destination: tuple, r_Origin: int, r_Dest
         
         import warnings
         warnings.filterwarnings("ignore")
-
+        
+        from gripit.DataBase import conStrPostgreSQL
+        
+        
         rO = r_Origin # rayon en km
         rD = r_Destination # rayon en km
     
@@ -250,16 +265,6 @@ def chargeTJM_twoPoint (origin: tuple, destination: tuple, r_Origin: int, r_Dest
          
         # Fonctions internes
         
-        def conStrSQLalchemy (dict_connection):
-            host = f'''{dict_connection["hostname"]}:{dict_connection["port_id"]}'''
-            database = dict_connection["database"]
-            user = dict_connection["username"]
-            password = dict_connection["pwd"]
-    
-            connection_string = f"postgresql://{user}:{password}@{host}/{database}"
-            return connection_string
-        
-    
         def getAttributs (sql, lst, dict_connection):
             conn = psycopg2.connect(
                 host=dict_connection['hostname'],
@@ -287,7 +292,7 @@ def chargeTJM_twoPoint (origin: tuple, destination: tuple, r_Origin: int, r_Dest
         SELECT id, geom FROM "MNTP"."zones"
         '''
         
-        engine = create_engine(conStrSQLalchemy(dict_connection))
+        engine = create_engine(conStrPostgreSQL(dict_connection))
         zones = gpd.read_postgis(SQLquery_sjoin, engine).to_crs('EPSG:2056')
         engine.dispose()
         
@@ -321,28 +326,4 @@ def chargeTJM_twoPoint (origin: tuple, destination: tuple, r_Origin: int, r_Dest
         
         elif trafic == 'separate':            
             return lst_attribut
-
-
-
-if __name__ == '__main__':
- 
-    gare_o = (2537878, 1152013) # Gare Lausanne
-    gare_d = (2499968, 1118531) # Gare Genève
- 
-    dict_connection = {
-        "hostname" : '',
-        "database" : '',
-        "username" : '',
-        "pwd" : '',
-        "port_id" : 5432,
-        "conn" : None,
-        "schema" : "MNTP"}   
- 
-    
-    x = chargeTJM_onePoint(gare_o,20,20,dict_connection, trafic='separate')
-    # y = chargeTJM_twoPoint(gare_d,gare_o,10,10,dict_connection, trafic='separate')
-    # z = chargeTJM_twoPoint(gare_d,gare_o,10,10,dict_connection, trafic='separate', tim_taux=1)
-
-
-
 

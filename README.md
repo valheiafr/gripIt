@@ -11,11 +11,6 @@ cd "path to folder with setup.py"
     
     pip install .
 
-# Instalation en local via ZIP (à contrôler)
-Package non présent sur un canal de distribution
-
-    pip install .../gripit/dist/gripit-0.0.1.tar.gz
-
 # Gestion des version avec GIT
 Tuto git - Vidéo de base
 
