@@ -7,6 +7,8 @@ Documentation is not available at the moment
 # Instalation en local via dossier
 Package non présent sur un canal de distribution
 
+    pip install git+https://github.com/valheiafr/gripit.git
+
 cd "path to folder with setup.py"
     
     pip install .
